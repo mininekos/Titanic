@@ -1,5 +1,15 @@
 package DAOs;
 
-public class DAOPersonas {
+import java.util.ArrayList;
 
+import POJO.Persona;
+
+public class DAOPersonas {
+	
+	private ArrayList<Persona> DaoPersonas;
+	
+	public ArrayList<Persona> getDaoPersonas() {
+		return DaoPersonas;
+	}
+	
 }

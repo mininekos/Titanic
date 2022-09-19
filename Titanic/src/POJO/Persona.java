@@ -1,6 +1,7 @@
 package POJO;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Objects;
 
 import Enums.TipoPais;
 import Enums.TipoZona;
@@ -11,10 +12,10 @@ public class Persona implements Comparable<Persona>{
 	private String dni, nombre;
 	private TipoZona zona;
 	private TipoPais pais;
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	private Boolean minusvalia;
 	
-	public Persona(String dni, String nombre, TipoZona zona, TipoPais pais, Date fechaNacimiento, Boolean minusvalia) {
+	public Persona(String dni, String nombre, TipoZona zona, TipoPais pais, LocalDate fechaNacimiento, Boolean minusvalia) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -56,11 +57,11 @@ public class Persona implements Comparable<Persona>{
 		this.pais = pais;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -79,10 +80,33 @@ public class Persona implements Comparable<Persona>{
 	}
 
 	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni, nombre, pais);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return Objects.equals(dni, other.dni) && Objects.equals(nombre, other.nombre) && pais == other.pais;
+	}
+
 	@Override
 	public int compareTo(Persona p) {
 		
-		return pais.compareTo(p.getPais());
+		if( pais.compareTo(p.getPais())!=0) {
+			return pais.compareTo(p.getPais());
+		}
+		else {
+			return nombre.compareTo(p.getNombre());
+		}
 	}
 
 	

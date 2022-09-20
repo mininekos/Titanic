@@ -27,7 +27,7 @@ public class Pasajero extends Persona{
 
 	@Override
 	public String toString() {
-		return super.toString()+"Pasajero --> numHabitacion=" + numHabitacion;
+		return super.toString()+" Pasajero --> numHabitacion=" + numHabitacion;
 	}
 
 	

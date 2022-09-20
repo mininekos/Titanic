@@ -2,6 +2,7 @@ package DAOs;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import Enums.TipoCargo;
 import Enums.TipoPais;
@@ -12,28 +13,23 @@ import POJO.Tripulación;
 
 public class DAOPersonas {
 	
-	private static ArrayList<Persona> lista =null;
 	private static DAOPersonas daoPersona=null;
 	
-	public ArrayList<Persona> getDaoPersonas() {
-		if (lista==null)
-			return lista;
-		else
-			return lista;
+	public DAOPersonas()  {
+		
 	}
 	
-	public ArrayList<Persona> getInstance() {
-		if (lista==null)
-			return lista;
-		else
-			return lista;
+	public static DAOPersonas getInstance() {
+		if (daoPersona==null)
+			return daoPersona=new DAOPersonas();
+		return daoPersona;
 	}
 	
-	private DAOPersonas() {
-		lista=new ArrayList<Persona>();
+	public  ArrayList<Persona> getDaoPersonas(){
+		ArrayList<Persona> lista=new ArrayList<Persona>();
 		//Familia 1
 		lista.add(new Pasajero("145236978B", "Juan", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(1975, 3, 8), false, 145));
-		lista.add(new Pasajero("145234444A", "Maria", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(2015, 6, 2), false, 145));
+		lista.add(new Pasajero("145234444A", "Maria", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(2015, 10, 2), false, 145));
 		lista.add(new Pasajero("145236984G", "Angel", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(2002, 10, 7), false, 145));
 		lista.add(new Pasajero("145236999C", "Pepa", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(1980, 5, 12), false, 145));
 		
@@ -53,6 +49,10 @@ public class DAOPersonas {
 		lista.add(new Tripulación("987456124C", "Rafael", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MUY_ALTA));
 		lista.add(new Tripulación("987456125C", "Alberti", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MEDIA));
 		lista.add(new Tripulación("987456126C", "Lola", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.BAJA));
+	
+		Collections.shuffle(lista);
+		Collections.sort(lista,new Persona());
+		return lista;
 	}
 	
 	

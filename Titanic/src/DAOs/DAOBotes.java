@@ -7,21 +7,21 @@ import POJO.Bote;
 
 public class DAOBotes {
 
-	private static ArrayList<Bote> lista=null;
+
 	private static DAOBotes daoBotes=null;
 	
-	public ArrayList<Bote> getDaoBotes(){
+	private DAOBotes() {
 		
-		return lista;
 	}
 		
-	public ArrayList<Bote> instanceDaoBotes(){
-		
-		return lista;
+	public static DAOBotes getInstance(){
+		if(daoBotes==null)
+			daoBotes=new DAOBotes();
+		return daoBotes;
 	}
 	
-	private DAOBotes() {
-		lista= new ArrayList<Bote>();
+	public ArrayList<Bote> getDaoBotes() {
+		ArrayList<Bote> lista= new ArrayList<Bote>();
 		
 		lista.add(new Bote(10, TipoZona.PROA));
 		
@@ -30,6 +30,8 @@ public class DAOBotes {
 		lista.add(new Bote(4, TipoZona.ESTRIBOR));
 		
 		lista.add(new Bote(6, TipoZona.POPA));
+		
+		return lista;
 	}
 	
 	

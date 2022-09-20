@@ -1,12 +1,14 @@
 package POJO;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.util.Comparator;
 import java.util.Objects;
 
 import Enums.TipoPais;
 import Enums.TipoZona;
 
-public class Persona implements Comparable<Persona>{
+public class Persona implements Comparator<Persona>{
 
 	
 	private String dni, nombre;
@@ -14,6 +16,7 @@ public class Persona implements Comparable<Persona>{
 	private TipoPais pais;
 	private LocalDate fechaNacimiento;
 	private Boolean minusvalia;
+	private int edad;
 	
 	public Persona(String dni, String nombre, TipoZona zona, TipoPais pais, LocalDate fechaNacimiento, Boolean minusvalia) {
 		super();
@@ -23,6 +26,15 @@ public class Persona implements Comparable<Persona>{
 		this.pais = pais;
 		this.fechaNacimiento = fechaNacimiento;
 		this.minusvalia = minusvalia;
+		this.edad=getEdad();
+	}
+
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int getEdad() {
+		return Period.between(fechaNacimiento, LocalDate.now()).getYears();
 	}
 
 	public String getDni() {
@@ -75,8 +87,8 @@ public class Persona implements Comparable<Persona>{
 
 	@Override
 	public String toString() {
-		return "Persona --> dni=" + dni + ", nombre=" + nombre + ", zona=" + zona + ", pais=" + pais + ", fechaNacimiento="
-				+ fechaNacimiento + ", minusvalia=" + minusvalia ;
+		return "\nPersona --> dni= " + dni + ", nombre= " + nombre + ", zona= " + zona + ", pais= " + pais + ", fechaNacimiento= "
+				+ fechaNacimiento + ", minusvalia= " + minusvalia + ", edad= "+edad ;
 	}
 
 	
@@ -99,13 +111,13 @@ public class Persona implements Comparable<Persona>{
 	}
 
 	@Override
-	public int compareTo(Persona p) {
+	public int compare(Persona p1, Persona p2) {
 		
-		if( pais.compareTo(p.getPais())!=0) {
-			return pais.compareTo(p.getPais());
+		if( p1.pais.compareTo(p2.getPais())!=0) {
+			return p1.pais.compareTo(p2.getPais());
 		}
 		else {
-			return nombre.compareTo(p.getNombre());
+			return p1.nombre.compareTo(p2.getNombre());
 		}
 	}
 

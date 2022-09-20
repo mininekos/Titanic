@@ -42,7 +42,7 @@ public class Bote {
 
 	@Override
 	public String toString() {
-		return "Bote --> numPlazas=" + numPlazas+ "Zona=" + zona;
+		return "\nBote --> numPlazas= " + numPlazas+ "Zona= " + zona;
 	}
 	
 	

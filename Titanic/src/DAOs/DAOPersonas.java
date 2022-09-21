@@ -9,7 +9,7 @@ import Enums.TipoPais;
 import Enums.TipoZona;
 import POJO.Pasajero;
 import POJO.Persona;
-import POJO.Tripulación;
+import POJO.Tripulacion;
 
 public class DAOPersonas {
 	
@@ -45,10 +45,10 @@ public class DAOPersonas {
 		lista.add(new Pasajero("145230000C", "Pepa", TipoZona.ESTRIBOR, TipoPais.FRANCIA, LocalDate.of(1970, 5, 12), true, 15));
 		
 		//Tripulacion
-		lista.add(new Tripulación("987456123C", "Josh", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.ALTA));
-		lista.add(new Tripulación("987456124C", "Rafael", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MUY_ALTA));
-		lista.add(new Tripulación("987456125C", "Alberti", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MEDIA));
-		lista.add(new Tripulación("987456126C", "Lola", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.BAJA));
+		lista.add(new Tripulacion("987456123C", "Josh", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.ALTA));
+		lista.add(new Tripulacion("987456124C", "Rafael", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MUY_ALTA));
+		lista.add(new Tripulacion("987456125C", "Alberti", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MEDIA));
+		lista.add(new Tripulacion("987456126C", "Lola", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.BAJA));
 	
 		Collections.shuffle(lista);
 		Collections.sort(lista,new Persona());

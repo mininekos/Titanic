@@ -1,14 +1,17 @@
 package Servicio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import Comparador.ComparadorSalida;
 import DAOs.DAOBotes;
 import DAOs.DAOPersonas;
 import Enums.TipoZona;
 import POJO.Persona;
 import POJO.Bote;
+import POJO.Pasajero;
 
 public class Servicio {
 
@@ -26,6 +29,9 @@ public class Servicio {
 	
 	
 	 public void llenarBote() {
+		 
+		 //Con Arraylist
+		 ordenadarParaSalidda();
 		 for (int ind = 0; ind < listaPersonas.size(); ind++) {
 			if(listaPersonas.get(ind).getZona()==TipoZona.PROA) {
 				
@@ -40,9 +46,18 @@ public class Servicio {
 				
 			}
 		}
-		 		
+		
+		 
 	 }
+	 
 	
+	
+	private void ordenadarParaSalidda() {
+		Collections.sort(listaPersonas,new ComparadorSalida());
+		
+	}
+
+
 	private int comprobobarEdad() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -50,6 +65,11 @@ public class Servicio {
 
 	public String personasToString() {
 		
+		return listaPersonas.toString();
+	}
+	
+	public String personasToStringOrdenada() {
+		ordenadarParaSalidda();
 		return listaPersonas.toString();
 	}
 	

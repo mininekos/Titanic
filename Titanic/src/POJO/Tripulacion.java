@@ -7,11 +7,11 @@ import Enums.TipoCargo;
 import Enums.TipoPais;
 import Enums.TipoZona;
 
-public class Tripulación extends Persona{
+public class Tripulacion extends Persona{
 	
 	private TipoCargo cargo;
 
-	public Tripulación(String dni, String nombre, TipoZona zona, TipoPais pais, LocalDate fechaNacimiento,
+	public Tripulacion(String dni, String nombre, TipoZona zona, TipoPais pais, LocalDate fechaNacimiento,
 			Boolean minusvalia, TipoCargo cargo) {
 		super(dni, nombre, zona, pais, fechaNacimiento, minusvalia);
 		this.cargo = cargo;

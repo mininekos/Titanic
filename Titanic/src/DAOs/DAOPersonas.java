@@ -28,7 +28,7 @@ public class DAOPersonas {
 	public  ArrayList<Persona> getDaoPersonas(){
 		ArrayList<Persona> lista=new ArrayList<Persona>();
 		//Familia 1
-		lista.add(new Pasajero("145236978B", "Juan", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(1975, 3, 8), false, 145));
+		lista.add(new Pasajero("145236978B", "Juan", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(1930, 3, 8), false, 145));
 		lista.add(new Pasajero("145234444A", "Maria", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(2015, 10, 2), false, 145));
 		lista.add(new Pasajero("145236984G", "Angel", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(2002, 10, 7), false, 145));
 		lista.add(new Pasajero("145236999C", "Pepa", TipoZona.BABOR, TipoPais.ESPANA, LocalDate.of(1980, 5, 12), false, 145));
@@ -45,10 +45,10 @@ public class DAOPersonas {
 		lista.add(new Pasajero("145230000C", "Pepa", TipoZona.ESTRIBOR, TipoPais.FRANCIA, LocalDate.of(1970, 5, 12), true, 15));
 		
 		//Tripulacion
-		lista.add(new Tripulacion("987456123C", "Josh", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.ALTA));
-		lista.add(new Tripulacion("987456124C", "Rafael", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MUY_ALTA));
-		lista.add(new Tripulacion("987456125C", "Alberti", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.MEDIA));
-		lista.add(new Tripulacion("987456126C", "Lola", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1965, 3, 8), false, TipoCargo.BAJA));
+		lista.add(new Tripulacion("987456123C", "Josh", TipoZona.BABOR, TipoPais.ITALIA, LocalDate.of(1975, 3, 8), false, TipoCargo.ALTA));
+		lista.add(new Tripulacion("987456124C", "Rafael", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1970, 3, 8), false, TipoCargo.MUY_ALTA));
+		lista.add(new Tripulacion("987456125C", "Alberti", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1985, 3, 8), false, TipoCargo.MEDIA));
+		lista.add(new Tripulacion("987456126C", "Lola", TipoZona.PROA, TipoPais.ITALIA, LocalDate.of(1962, 3, 8), false, TipoCargo.BAJA));
 	
 		Collections.shuffle(lista);
 		Collections.sort(lista,new Persona());

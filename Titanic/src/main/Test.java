@@ -12,6 +12,10 @@ public class Test {
 		//System.out.println(servicio.botesToString());
 		//System.out.println(servicio.personasToString());
 		System.out.println(servicio.personasToStringOrdenada());
+		
+		servicio.llenarBote();
+		System.out.println(servicio.personasToStringOrdenadaSalida());
+		System.out.println(servicio.personasToStringOrdenada());
 	}
 
 }

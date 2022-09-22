@@ -15,12 +15,12 @@ public class ComparadorSalida implements Comparator<Persona>{
 			}
 		else if ( persona1 instanceof Pasajero && persona2 instanceof Pasajero)
 			return persona1.getEdad()-persona2.getEdad();
-			else if(persona1 instanceof Tripulacion && persona1 instanceof Tripulacion) {
+			else if(persona1 instanceof Tripulacion && persona2 instanceof Tripulacion) {
 				Tripulacion trip1=(Tripulacion) persona1,trip2=(Tripulacion) persona2;
 				return trip1.getCargo().compareTo(trip2.getCargo());
 			}
 			else 
-				return -1;
+				return 1;
 		 
 			
 	}

@@ -1,8 +1,11 @@
 package POJO;
 
+
+import java.util.Comparator;
+
 import Enums.TipoZona;
 
-public class Bote {
+public class Bote implements Comparator<Bote>{
 
 	private static Integer id=0;
 	private Integer numPlazas;
@@ -14,6 +17,9 @@ public class Bote {
 		this.zona = zona;
 		
 		id++;
+	}
+	public Bote() {
+		
 	}
 	
 	public static Integer getId() {
@@ -44,6 +50,25 @@ public class Bote {
 	public String toString() {
 		return "\nBote --> numPlazas= " + numPlazas+ "Zona= " + zona;
 	}
+	@Override
+	public int compare(Bote bote1, Bote bote2) {
+		if(bote1.getZona().compareTo(bote2.getZona())!=0) {
+			if(bote1.getZona()==TipoZona.PROA) {
+				return -1;
+			}
+			else if(bote1.getZona()==TipoZona.ESTRIBOR) {
+				return -1;
+			}
+			else if(bote1.getZona()==TipoZona.POPA) {
+				return -1;
+			}
+			else if(bote1.getZona()==TipoZona.BABOR) {
+				return -1;
+			}
+		}
+		return 0;
+	}
+	
 	
 	
 	

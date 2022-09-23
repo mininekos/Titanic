@@ -58,6 +58,7 @@ public class Servicio {
 				Bote key = entry.getKey();
 				ArrayList<Persona> val = entry.getValue();
 				for(int ind=0;val.size()<key.getNumPlazas();ind++) {
+					if(salidaPersonas.size()>0)
 					addToList(key, salidaPersonas.remove(0));
 				}
 				System.out.println(key.toString()+val.toString());

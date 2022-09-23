@@ -1,6 +1,7 @@
 package Servicio;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,8 @@ import DAOs.DAOPersonas;
 import Enums.TipoZona;
 import POJO.Persona;
 import POJO.Tripulacion;
+import Recursos.Cliente;
+import Recursos.Documento;
 import POJO.Bote;
 import POJO.Pasajero;
 
@@ -31,7 +34,9 @@ public class Servicio {
 	public void vaciarBarco() {
 
 		// Con Arraylist
-		// ordenadarParaSalidda();
+		//Ordeno primero(por las condiciones puedo no hacerlo)
+		ordenadarParaSalidda();
+		ordenarBotes();
 		// lleno un array para sacarlo al terminar la zona
 		sacarPersonas(TipoZona.PROA);
 		// Vacio el arraya en en botes
@@ -43,9 +48,29 @@ public class Servicio {
 
 	}
 
-	private void llenarBotes(TipoZona zona) {
+	private void llenarBotes(TipoZona zona) { 	
+			
+			Persona persona;
+			
+			for (int ind = 0; ind < listaBotes.size(); ind++) {
+				
+			}
 		
 		
+	}
+	
+	public synchronized void addToList(Bote mapKey, Persona persona) {
+		ArrayList<Persona> itemsList = botePersona.get(mapKey);
+
+	    // creo la lista
+	    if(itemsList == null) {
+	         itemsList = new ArrayList<Persona>();
+	         itemsList.add(persona);
+	         botePersona.put(mapKey, itemsList);
+	    } else {
+	        // agrego el item
+	        if(!itemsList.contains(persona)) itemsList.add(persona);
+	    }
 	}
 	
 	private void ordenarBotes() {
@@ -100,10 +125,6 @@ public class Servicio {
 
 	}
 
-	private int comprobobarEdad() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	public String personasToString() {
 

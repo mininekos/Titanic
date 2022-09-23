@@ -48,25 +48,12 @@ public class Bote implements Comparator<Bote>{
 
 	@Override
 	public String toString() {
-		return "\nBote --> numPlazas= " + numPlazas+ "Zona= " + zona;
+		return "\nBote --> numPlazas= " + numPlazas+ " Zona= " + zona;
 	}
 	@Override
 	public int compare(Bote bote1, Bote bote2) {
-		if(bote1.getZona().compareTo(bote2.getZona())!=0) {
-			if(bote1.getZona()==TipoZona.PROA) {
-				return -1;
-			}
-			else if(bote1.getZona()==TipoZona.ESTRIBOR) {
-				return -1;
-			}
-			else if(bote1.getZona()==TipoZona.POPA) {
-				return -1;
-			}
-			else if(bote1.getZona()==TipoZona.BABOR) {
-				return -1;
-			}
-		}
-		return 0;
+		return bote1.getZona().compareTo(bote2.getZona());
+			
 	}
 	
 	

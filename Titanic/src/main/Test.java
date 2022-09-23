@@ -19,7 +19,7 @@ public class Test {
 		//System.out.println(servicio.personasToStringOrdenadaSalida());
 		//System.out.println(servicio.personasToStringOrdenada());
 		//System.out.println(servicio.botesToStringOrdenado());
-		
+		servicio.vaciarBarco();
 		
 		
 		

@@ -47,25 +47,25 @@ public class Servicio {
 
 	private void llenarBotes() { 	
 			
-			Persona persona;
 			if(botePersona.isEmpty()) {
 				for (Bote bote : listaBotes) {
 					botePersona.put(bote, new ArrayList<Persona>());
 				}
 			}
-			
+			//no funciona del todo bien
 			for (Map.Entry<Bote, ArrayList<Persona>> entry : botePersona.entrySet()) {
 				Bote key = entry.getKey();
 				ArrayList<Persona> val = entry.getValue();
 				for(int ind=0;val.size()<key.getNumPlazas();ind++) {
 					if(salidaPersonas.size()>0)
-					addToList(key, salidaPersonas.remove(0));
+					addToList(key, salidaPersonas.get(0));
+					salidaPersonas.remove(0);	
 				}
 				System.out.println(key.toString()+val.toString());
-				
-			} {
-				
-			}
+			
+			} 
+			
+			
 		
 		
 	}

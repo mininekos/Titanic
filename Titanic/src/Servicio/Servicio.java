@@ -35,7 +35,7 @@ public class Servicio {
 		// Con Arraylist
 		//Ordeno primero(por las condiciones puedo no hacerlo)
 		ordenadarParaSalidda();
-		ordenarBotes();
+		
 		// lleno un array para sacarlo al terminar la zona
 		sacarPersonas(TipoZona.PROA);
 		sacarPersonas(TipoZona.ESTRIBOR);
@@ -51,16 +51,19 @@ public class Servicio {
 				for (Bote bote : listaBotes) {
 					botePersona.put(bote, new ArrayList<Persona>());
 				}
+				
 			}
 			//Funciona
 			for (Map.Entry<Bote, ArrayList<Persona>> entry : botePersona.entrySet()) {
 				Bote key = entry.getKey();
 				ArrayList<Persona> val = entry.getValue();
 				for(int ind=0;val.size()<key.getNumPlazas() && salidaPersonas.size()>0;ind++) {	
+					//if(val.get(ind).getZona()==key.getZona())
 					addToList(key, salidaPersonas.remove(0));	
 				}
-				System.out.println(key.toString()+val.toString());
+				//System.out.println(key.toString()+val.toString());
 			} 
+			System.out.println(botePersona.toString());
 	}
 	
 	public synchronized void addToList(Bote mapKey, Persona persona) {
@@ -76,10 +79,7 @@ public class Servicio {
 	        if(!itemsList.contains(persona)) itemsList.add(persona);
 	    }
 	}
-	
-	private void ordenarBotes() {
-		Collections.sort(listaBotes,new Bote());
-	}
+
 	// Ordena listaPersona de forma que las pueda sacar
 	private void sacarPersonas(TipoZona zona) {
 		for (int ind = 0; ind < listaPersonas.size(); ind++) {
@@ -149,8 +149,4 @@ public class Servicio {
 		return listaBotes.toString();
 	}
 
-	public String botesToStringOrdenado() {
-		ordenarBotes();
-		return listaBotes.toString();
-	}
 }

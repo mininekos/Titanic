@@ -9,7 +9,7 @@ public class Test {
 		Servicio servicio = new Servicio();
 		
 		//Prueba DAOS
-		//System.out.println(servicio.botesToString());
+		System.out.println(servicio.botesToString());
 		//System.out.println(servicio.personasToString());
 		
 		//Prueba ordenacion

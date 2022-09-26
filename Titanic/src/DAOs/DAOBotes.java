@@ -1,6 +1,7 @@
 package DAOs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import Enums.TipoZona;
 import POJO.Bote;
@@ -30,7 +31,7 @@ public class DAOBotes {
 		lista.add(new Bote(4, TipoZona.ESTRIBOR));
 		
 		lista.add(new Bote(6, TipoZona.POPA));
-		
+		Collections.sort(lista,new Bote());
 		return lista;
 	}
 	

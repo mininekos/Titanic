@@ -52,21 +52,24 @@ public class Servicio {
 				for (Bote bote : listaBotes) {
 					botePersona.put(bote, new ArrayList<Persona>());
 				}
+				System.out.println(botePersona.toString());
 			}
 			
 			for (Map.Entry<Bote, ArrayList<Persona>> entry : botePersona.entrySet()) {
 				Bote key = entry.getKey();
 				ArrayList<Persona> val = entry.getValue();
-				for(int ind=0;val.size()<key.getNumPlazas();ind++) {
-					if(salidaPersonas.size()>0)
+				
+				for(int ind=0;val.size()<key.getNumPlazas()&&salidaPersonas.size()>0;ind++) {
+					
 					addToList(key, salidaPersonas.remove(0));
+					
+					
 				}
 				System.out.println(key.toString()+val.toString());
 				
-			} {
-				
-			}
-		
+			} 
+			
+			
 		
 	}
 	

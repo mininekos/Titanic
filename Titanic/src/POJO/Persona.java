@@ -121,7 +121,20 @@ public class Persona implements Comparator<Persona>{
 		}
 	}
 
-	
+	/*
+	public static class comparePais implements Comparator<Persona> {
+
+		@Override
+		public int compare(Persona p1, Persona p2) {
+			if( p1.pais.compareTo(p2.getPais())!=0) {
+				return p1.pais.compareTo(p2.getPais());
+			}
+			else {
+				return p1.nombre.compareTo(p2.getNombre());
+			}
+		}
+		
+	}*/
 	
 	
 }

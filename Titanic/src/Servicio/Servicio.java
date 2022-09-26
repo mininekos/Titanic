@@ -52,20 +52,15 @@ public class Servicio {
 					botePersona.put(bote, new ArrayList<Persona>());
 				}
 			}
-			//no funciona del todo bien
+			//Funciona
 			for (Map.Entry<Bote, ArrayList<Persona>> entry : botePersona.entrySet()) {
 				Bote key = entry.getKey();
 				ArrayList<Persona> val = entry.getValue();
-				for(int ind=0;val.size()<key.getNumPlazas() && salidaPersonas.size()>0;ind++) {
-					
-					addToList(key, salidaPersonas.remove(0));
-						
+				for(int ind=0;val.size()<key.getNumPlazas() && salidaPersonas.size()>0;ind++) {	
+					addToList(key, salidaPersonas.remove(0));	
 				}
 				System.out.println(key.toString()+val.toString());
-			
 			} 
-
-		
 	}
 	
 	public synchronized void addToList(Bote mapKey, Persona persona) {

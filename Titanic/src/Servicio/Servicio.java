@@ -66,7 +66,7 @@ public class Servicio {
 				}
 				//System.out.println(key.toString()+val.toString());
 			} 
-			System.out.println(botePersona.toString());
+			//System.out.println(botePersona.toString());
 	}
 	
 	public synchronized void addToList(Bote mapKey, Persona persona) {

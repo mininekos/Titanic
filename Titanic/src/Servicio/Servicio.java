@@ -30,7 +30,7 @@ public class Servicio {
 		this.salidaPersonas = new ArrayList<Persona>();
 	}
 
-	public void vaciarBarco() {
+	public void vaciarBarco() throws InterruptedException {
 
 		// Con Arraylist
 		//Ordeno primero(por las condiciones puedo no hacerlo)
@@ -45,7 +45,7 @@ public class Servicio {
 
 	}
 
-	private void llenarBotes() { 	
+	private void llenarBotes() throws InterruptedException { 	
 			
 			if(botePersona.isEmpty()) {
 				for (Bote bote : listaBotes) {
@@ -53,13 +53,16 @@ public class Servicio {
 				}
 				
 			}
+			//System.out.println(botePersona.toString());
 			//Funciona
 			for (Map.Entry<Bote, ArrayList<Persona>> entry : botePersona.entrySet()) {
 				Bote key = entry.getKey();
 				ArrayList<Persona> val = entry.getValue();
 				for(int ind=0;val.size()<key.getNumPlazas() && salidaPersonas.size()>0;ind++) {	
 					//if(val.get(ind).getZona()==key.getZona())
+					System.out.println(salidaPersonas.get(0).getNombre()+" vaya a " +key.getZona());
 					addToList(key, salidaPersonas.remove(0));	
+					Thread.sleep(1000);
 				}
 				//System.out.println(key.toString()+val.toString());
 			} 

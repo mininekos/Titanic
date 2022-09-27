@@ -4,12 +4,12 @@ import Servicio.Servicio;
 
 public class Test {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		Servicio servicio = new Servicio();
 		
 		//Prueba DAOS
-		System.out.println(servicio.botesToString());
+		//System.out.println(servicio.botesToString());
 		//System.out.println(servicio.personasToString());
 		
 		//Prueba ordenacion

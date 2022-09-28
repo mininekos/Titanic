@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 import Enums.TipoZona;
 
-public class Bote implements Comparator<Bote>{
+public class Bote implements Comparable<Bote>{
 
 	private static Integer id=0;
 	private Integer numPlazas;
@@ -50,10 +50,16 @@ public class Bote implements Comparator<Bote>{
 	public String toString() {
 		return "\nBote --> numPlazas= " + numPlazas+ " Zona= " + zona;
 	}
+	/*
 	@Override
 	public int compare(Bote bote1, Bote bote2) {
 		return bote1.getZona().compareTo(bote2.getZona());
 			
+	}*/
+	@Override
+	public int compareTo(Bote bote) {
+		
+		return this.getZona().compareTo(bote.getZona());
 	}
 	
 	

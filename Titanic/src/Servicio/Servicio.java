@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 import Comparador.ComparadorSalida;
 import DAOs.DAOBotes;
@@ -24,7 +25,7 @@ public class Servicio {
 
 	public Servicio() {
 		super();
-		botePersona= new HashMap<Bote, ArrayList<Persona>>();
+		botePersona= new TreeMap<Bote, ArrayList<Persona>>();
 		this.listaBotes = DAOBotes.getInstance().getDaoBotes();
 		this.listaPersonas = DAOPersonas.getInstance().getDaoPersonas();
 		this.salidaPersonas = new ArrayList<Persona>();
@@ -32,17 +33,36 @@ public class Servicio {
 
 	public void vaciarBarco() throws InterruptedException {
 
-		// Con Arraylist
-		//Ordeno primero(por las condiciones puedo no hacerlo)
-		ordenadarParaSalidda();
 		
-		// lleno un array para sacarlo al terminar la zona
-		sacarPersonas(TipoZona.PROA);
-		sacarPersonas(TipoZona.ESTRIBOR);
-		sacarPersonas(TipoZona.POPA);
-		sacarPersonas(TipoZona.BABOR);
-		llenarBotes();
+		if(!comprobarZarpar()) {
+			System.out.println("Viaje no valido mas personas que sitios en los botes salvavidas");
+		}
+		else {
+			// Con Arraylist
+			//Ordeno primero(por las condiciones puedo no hacerlo)
+			ordenadarParaSalidda();
+			
+			// lleno un array para sacarlo al terminar la zona
+			sacarPersonas(TipoZona.PROA);
+			sacarPersonas(TipoZona.ESTRIBOR);
+			sacarPersonas(TipoZona.POPA);
+			sacarPersonas(TipoZona.BABOR);
+			llenarBotes();
 
+		
+		}
+	}
+
+	private boolean comprobarZarpar() {
+		int sitios=0;
+		boolean permitido=true;
+		for (Bote bote : listaBotes) {
+			sitios+=bote.getNumPlazas();
+		}
+		if(sitios<listaPersonas.size())
+			permitido=false;
+		
+		return permitido;
 	}
 
 	private void llenarBotes() throws InterruptedException { 	
@@ -66,7 +86,7 @@ public class Servicio {
 				}
 				//System.out.println(key.toString()+val.toString());
 			} 
-			//System.out.println(botePersona.toString());
+			System.out.println(botePersona.toString());
 	}
 	
 	public synchronized void addToList(Bote mapKey, Persona persona) {

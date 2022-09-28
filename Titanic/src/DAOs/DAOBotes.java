@@ -24,14 +24,14 @@ public class DAOBotes {
 	public ArrayList<Bote> getDaoBotes() {
 		ArrayList<Bote> lista= new ArrayList<Bote>();
 		
-		lista.add(new Bote(10, TipoZona.PROA));
+		lista.add(new Bote(4, TipoZona.PROA));
 		
 		lista.add(new Bote(2, TipoZona.BABOR));
 		
-		lista.add(new Bote(4, TipoZona.ESTRIBOR));
+		lista.add(new Bote(5, TipoZona.ESTRIBOR));
 		
 		lista.add(new Bote(6, TipoZona.POPA));
-		Collections.sort(lista,new Bote());
+		//Collections.sort(lista,new Bote());
 		return lista;
 	}
 	
